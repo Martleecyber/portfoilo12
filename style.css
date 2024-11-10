@@ -1,0 +1,677 @@
+/* Base Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-size: 16px;
+}
+
+/* Navbar Container */
+.navbar {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #222;
+    /* Dark background for a classy look */
+    color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Brand Name */
+.brand a {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffdd57;
+    /* Gold color for luxury feel */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.brand a:hover {
+    color: #fff;
+}
+
+/* Menu Icon for Mobile */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon .bar {
+    height: 3px;
+    width: 28px;
+    background-color: #ffdd57;
+    /* Matches brand color */
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #f1f1f1;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ffdd57;
+    /* Underline effect color */
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.nav-links li a:hover {
+    color: #ffdd57;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 10px 10px;
+    }
+
+    .menu-icon {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Mobile Menu Toggle Animation */
+    .menu-icon.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-icon.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav-links.show {
+        display: flex;
+        animation: fadeIn 0.3s ease forwards;
+    }
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Hero Section Styling */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 100px auto 0;
+    /* Creates space for fixed navbar */
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Intro and Header Text */
+.intro {
+    grid-column: 1 / span 2;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.hero-title span {
+    color: #ffdd57;
+    /* Premium gold color */
+}
+
+.hero-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #ffdd57;
+    margin: 10px auto 0;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.hero-title:hover::after {
+    width: 80px;
+    /* Expands on hover */
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Profile Picture */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* About Section */
+.about {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.about-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.about-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #ffdd57;
+    /* Matches other accents */
+    margin-top: 5px;
+    border-radius: 2px;
+}
+
+.about-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about {
+        text-align: center;
+    }
+}
+
+
+/* Portfolio Section Styling */
+.portfolio-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.portfolio-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #333;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.portfolio-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ffdd57;
+    /* Gold underline */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.portfolio-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* Portfolio Grid Layout */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Portfolio Card Styling */
+.portfolio-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.store-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.store-niche {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.view-store-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #ffdd57;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.view-store-btn:hover {
+    background-color: #d4b84f;
+    /* Darker shade of gold */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio-title {
+        font-size: 1.8rem;
+    }
+
+    .portfolio-subtitle {
+        font-size: 1rem;
+    }
+}
+
+
+.cvbtn {
+    background-color: transparent;
+    text-transform: capitalize;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid goldenrod;
+    width: 100px;
+    font-size: large;
+}
+
+/* Skills Section Styling */
+.skills-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.skills-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #333;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.skills-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ffdd57; /* Gold underline */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.skills-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* Skills Grid Layout */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Skills Card Styling */
+.skills-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.skills-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skill-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.skill-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skill-list li {
+    font-size: 1rem;
+    color: #666;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.skill-list li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills-title {
+        font-size: 1.8rem;
+    }
+
+    .skills-subtitle {
+        font-size: 1rem;
+    }
+}
+/* Testimonials Section Styling */
+.testimonials-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #000; /* Black background for premium look */
+    color: #fff;
+}
+
+.testimonials-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #ffdd57; /* Gold title */
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.testimonials-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ffdd57;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.testimonials-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* Testimonials Grid Layout */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Testimonial Card Styling */
+.testimonial-card {
+    background-color: #1a1a1a; /* Dark gray for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    color: #ffdd57; /* Gold text for premium feel */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+.client-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffdd57;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonials-title {
+        font-size: 1.8rem;
+    }
+
+    .testimonials-subtitle {
+        font-size: 1rem;
+    }
+}
+/* Contact Section Styling */
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #000; /* Black background for premium look */
+    color: #fff;
+}
+
+.contact-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #ffdd57; /* Gold title */
+    margin-bottom: 15px;
+}
+
+.contact-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ffdd57;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.contact-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* Contact Card Layout */
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a; /* Dark gray for contrast */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Info Styling */
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffdd57;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.contact-info a {
+    color: #ffdd57;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Form Styling */
+.contact-form label {
+    display: block;
+    font-size: 1rem;
+    color: #ffdd57;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 1px solid #ffdd57;
+    outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #ffdd57;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #d4b84f; /* Darker shade of gold */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 20px;
+    }
+
+    .contact-info h3,
+    .contact-title {
+        font-size: 1.8rem;
+    }
+
+    .contact-subtitle {
+        font-size: 1rem;
+    }
+}
